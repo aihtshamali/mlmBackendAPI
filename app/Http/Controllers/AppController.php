@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+// Illuminate\Contracts\Routing\ResponseFactory;
+use App\Apps;
 class AppController extends Controller
 {
     /**
@@ -13,8 +14,10 @@ class AppController extends Controller
      */
     public function index()
     {
-        $apps=Apps::all();
-        return view('apps.index',compact('apps'));
+        $apps=Apps::all()->toJson();
+        // $app=Response::Json($apps);
+        // dd($apps);
+
     }
 
     /**
@@ -24,7 +27,7 @@ class AppController extends Controller
      */
     public function create()
     {
-        return view('apps.create');
+        // return view('apps.create');
     }
 
     /**
@@ -35,7 +38,12 @@ class AppController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $app= new Apps();
+        $app->title=$request->title;
+        $app->sub_title=$request->sub_title;
+        $app->link=$request->link;
+        $app->img_url=$request->img_url;
+        $app->save();
     }
 
     /**
@@ -46,7 +54,7 @@ class AppController extends Controller
      */
     public function show($id)
     {
-        //
+        return Apps::find($id)->toJson();
     }
 
     /**
@@ -57,8 +65,7 @@ class AppController extends Controller
      */
     public function edit($id)
     {
-        $a=Apps::find($id);
-        return view('apps.edit',compact('a'));
+      return Apps::find($id)->toJson();
     }
 
     /**
@@ -70,7 +77,14 @@ class AppController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
+      Apps:destroy($id);
+      $app= new Apps();
+      $app->title=$request->title;
+      $app->sub_title=$request->sub_title;
+      $app->link=$request->link;
+      $app->img_url=$request->img_url;
+      $app->save();
+
     }
 
     /**
@@ -82,6 +96,5 @@ class AppController extends Controller
     public function destroy($id)
     {
         Apps:find($id)->delete();
-        return redirect()->back()->withMessage("Deleted Successfully");
     }
 }

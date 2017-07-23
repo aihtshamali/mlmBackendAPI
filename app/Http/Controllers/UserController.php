@@ -13,8 +13,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users=  User::all();
-        return view('users.index',compact('users'));
+      return User::all()->toJson();
+
     }
 
     /**
@@ -57,8 +57,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user=User::find($id);
-        return view('users.edit',compact('users'));
+      return User::find($id)->toJson();
     }
 
     /**
@@ -81,6 +80,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
     }
 }

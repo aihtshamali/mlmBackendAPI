@@ -1,0 +1,52 @@
+
++--------+-----------+----------------------------+-------------------+------------------------------------------------------------------------+--------------+
+| Domain | Method    | URI                        | Name              | Action                                                                 | Middleware   |
++--------+-----------+----------------------------+-------------------+------------------------------------------------------------------------+--------------+
+|        | GET|HEAD  | /                          |                   | Closure                                                                | web          |
+|        | GET|HEAD  | api/user                   |                   | Closure                                                                | api,auth:api |
+|        | POST      | apps                       | apps.store        | App\Http\Controllers\AppController@store                               | web,auth     |
+|        | GET|HEAD  | apps                       | apps.index        | App\Http\Controllers\AppController@index                               | web,auth     |
+|        | GET|HEAD  | apps/create                | apps.create       | App\Http\Controllers\AppController@create                              | web,auth     |
+|        | GET|HEAD  | apps/{app}                 | apps.show         | App\Http\Controllers\AppController@show                                | web,auth     |
+|        | DELETE    | apps/{app}                 | apps.destroy      | App\Http\Controllers\AppController@destroy                             | web,auth     |
+|        | PUT|PATCH | apps/{app}                 | apps.update       | App\Http\Controllers\AppController@update                              | web,auth     |
+|        | GET|HEAD  | apps/{app}/edit            | apps.edit         | App\Http\Controllers\AppController@edit                                | web,auth     |
+|        | POST      | appshare                   | appshare.store    | App\Http\Controllers\AppShareController@store                          | web,auth     |
+|        | GET|HEAD  | appshare                   | appshare.index    | App\Http\Controllers\AppShareController@index                          | web,auth     |
+|        | GET|HEAD  | appshare/create            | appshare.create   | App\Http\Controllers\AppShareController@create                         | web,auth     |
+|        | GET|HEAD  | appshare/{appshare}        | appshare.show     | App\Http\Controllers\AppShareController@show                           | web,auth     |
+|        | DELETE    | appshare/{appshare}        | appshare.destroy  | App\Http\Controllers\AppShareController@destroy                        | web,auth     |
+|        | PUT|PATCH | appshare/{appshare}        | appshare.update   | App\Http\Controllers\AppShareController@update                         | web,auth     |
+|        | GET|HEAD  | appshare/{appshare}/edit   | appshare.edit     | App\Http\Controllers\AppShareController@edit                           | web,auth     |
+|        | GET|HEAD  | home                       | home              | App\Http\Controllers\HomeController@index                              | web,auth     |
+|        | GET|HEAD  | login                      | login             | App\Http\Controllers\Auth\LoginController@showLoginForm                | web,guest    |
+|        | POST      | login                      |                   | App\Http\Controllers\Auth\LoginController@login                        | web,guest    |
+|        | POST      | logout                     | logout            | App\Http\Controllers\Auth\LoginController@logout                       | web          |
+|        | POST      | password/email             | password.email    | App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail  | web,guest    |
+|        | GET|HEAD  | password/reset             | password.request  | App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm | web,guest    |
+|        | POST      | password/reset             |                   | App\Http\Controllers\Auth\ResetPasswordController@reset                | web,guest    |
+|        | GET|HEAD  | password/reset/{token}     | password.reset    | App\Http\Controllers\Auth\ResetPasswordController@showResetForm        | web,guest    |
+|        | GET|HEAD  | register                   | register          | App\Http\Controllers\Auth\RegisterController@showRegistrationForm      | web,guest    |
+|        | POST      | register                   |                   | App\Http\Controllers\Auth\RegisterController@register                  | web,guest    |
+|        | POST      | teamshare                  | teamshare.store   | App\Http\Controllers\TeamShareController@store                         | web,auth     |
+|        | GET|HEAD  | teamshare                  | teamshare.index   | App\Http\Controllers\TeamShareController@index                         | web,auth     |
+|        | GET|HEAD  | teamshare/create           | teamshare.create  | App\Http\Controllers\TeamShareController@create                        | web,auth     |
+|        | GET|HEAD  | teamshare/{teamshare}      | teamshare.show    | App\Http\Controllers\TeamShareController@show                          | web,auth     |
+|        | PUT|PATCH | teamshare/{teamshare}      | teamshare.update  | App\Http\Controllers\TeamShareController@update                        | web,auth     |
+|        | DELETE    | teamshare/{teamshare}      | teamshare.destroy | App\Http\Controllers\TeamShareController@destroy                       | web,auth     |
+|        | GET|HEAD  | teamshare/{teamshare}/edit | teamshare.edit    | App\Http\Controllers\TeamShareController@edit                          | web,auth     |
+|        | POST      | users                      | users.store       | App\Http\Controllers\UserController@store                              | web,auth     |
+|        | GET|HEAD  | users                      | users.index       | App\Http\Controllers\UserController@index                              | web,auth     |
+|        | GET|HEAD  | users/create               | users.create      | App\Http\Controllers\UserController@create                             | web,auth     |
+|        | DELETE    | users/{user}               | users.destroy     | App\Http\Controllers\UserController@destroy                            | web,auth     |
+|        | GET|HEAD  | users/{user}               | users.show        | App\Http\Controllers\UserController@show                               | web,auth     |
+|        | PUT|PATCH | users/{user}               | users.update      | App\Http\Controllers\UserController@update                             | web,auth     |
+|        | GET|HEAD  | users/{user}/edit          | users.edit        | App\Http\Controllers\UserController@edit                               | web,auth     |
+|        | POST      | wallet                     | wallet.store      | App\Http\Controllers\WalletController@store                            | web,auth     |
+|        | GET|HEAD  | wallet                     | wallet.index      | App\Http\Controllers\WalletController@index                            | web,auth     |
+|        | GET|HEAD  | wallet/create              | wallet.create     | App\Http\Controllers\WalletController@create                           | web,auth     |
+|        | GET|HEAD  | wallet/{wallet}            | wallet.show       | App\Http\Controllers\WalletController@show                             | web,auth     |
+|        | DELETE    | wallet/{wallet}            | wallet.destroy    | App\Http\Controllers\WalletController@destroy                          | web,auth     |
+|        | PUT|PATCH | wallet/{wallet}            | wallet.update     | App\Http\Controllers\WalletController@update                           | web,auth     |
+|        | GET|HEAD  | wallet/{wallet}/edit       | wallet.edit       | App\Http\Controllers\WalletController@edit                             | web,auth     |
++--------+-----------+----------------------------+-------------------+------------------------------------------------------------------------+--------------+

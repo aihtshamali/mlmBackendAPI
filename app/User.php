@@ -27,4 +27,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function AppShare(){
+      return $this->hasMany('App\AppShare');
+    }
+    public function TeamShare(){
+      return $this->hasMany('App\TeamShare');
+    }
 }

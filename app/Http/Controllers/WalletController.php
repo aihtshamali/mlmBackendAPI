@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\AppShare;
-use App\User;
-use Auth;
-class AppShareController extends Controller
+
+class WalletController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +13,7 @@ class AppShareController extends Controller
      */
     public function index()
     {
-        return AppShare::all()->toJson();
+        //
     }
 
     /**
@@ -25,6 +23,7 @@ class AppShareController extends Controller
      */
     public function create()
     {
+        //
     }
 
     /**
@@ -35,18 +34,7 @@ class AppShareController extends Controller
      */
     public function store(Request $request)
     {
-        $appshare =new AppShare();
-        $ByUserid=Auth::user()->id;
-        $appshare->ByUser()->associate($ByUserid);
-        $TouserId=User::find($request->ToUserId);
-        $appshare->ToUser()->associate($TouserId);
-        $appshare->phoneNo=$request->phoneNo;
-        $appshare->email=$request->email;
-        $appshare->fb=$request->fb;
-        $appshare->google=$request->google;
-        $appshare->downloaded=$request->downloaded;
-        $appshare->save();
-
+        //
     }
 
     /**
@@ -57,7 +45,7 @@ class AppShareController extends Controller
      */
     public function show($id)
     {
-      return AppShare::find($id)->toJson();
+        //
     }
 
     /**
@@ -68,7 +56,7 @@ class AppShareController extends Controller
      */
     public function edit($id)
     {
-      return AppShare::find($id)->toJson();
+        //
     }
 
     /**
@@ -80,18 +68,7 @@ class AppShareController extends Controller
      */
     public function update(Request $request, $id)
     {
-      AppShare::destroy($id);
-      $appshare =new AppShare();
-      $ByUserid=Auth::user()->id;
-      $appshare->ByUser()->associate($ByUserid);
-      $TouserId=User::find($request->TouserId);
-      $appshare->ByUser()->associate($ToUserid);
-      $appshare->phoneNo=$request->phoneNo;
-      $appshare->email=$request->email;
-      $appshare->fb=$request->fb;
-      $appshare->google=$request->google;
-      $appshare->downloaded=$request->downloaded;
-      $appshare->save();
+        //
     }
 
     /**
@@ -102,6 +79,6 @@ class AppShareController extends Controller
      */
     public function destroy($id)
     {
-      AppShare::destroy($id);
+        //
     }
 }

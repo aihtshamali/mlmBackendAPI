@@ -22,6 +22,8 @@ Route::group(['middleware'=>'auth'],function(){
 Route::resource('appshare','AppShareController');
 Route::resource('apps','AppController');
 Route::resource('users','UserController');
+Route::resource('teamshare','TeamShareController');
+Route::resource('wallet','WalletController');
 Route::get('/home', 'HomeController@index')->name('home');
 });
 
