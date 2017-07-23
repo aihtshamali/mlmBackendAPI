@@ -46,8 +46,20 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
-    }
+      $user=User::find($id);
+      return  response()->Json(['id'=>$user->id,
+                'name'=>$user->name,
+                'username'=>$user->username,
+                'card_type'=>$user->card_type,
+                'billingAddress'=>$user->billingAddress,
+                'socialSecurityNo'=>$user->socialSecurityNo,
+                'cvv_no'=>$user->cvv_no,
+                'dob'=>$user->dob,
+                'exp'=>$user->exp,
+                'matrial_status'=>$user->matrial_status,
+                'created_at'=>$user->created_at,
+                'updated_at'=>$user->updated_at,
+              ]);    }
 
     /**
      * Show the form for editing the specified resource.
@@ -57,7 +69,21 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-      return User::find($id)->toJson();
+      // return User::find($id)->toJson();
+      $user=User::find($id);
+      return  response()->Json(['id'=>$user->id,
+                'name'=>$user->name,
+                'username'=>$user->username,
+                'card_type'=>$user->card_type,
+                'billingAddress'=>$user->billingAddress,
+                'socialSecurityNo'=>$user->socialSecurityNo,
+                'cvv_no'=>$user->cvv_no,
+                'dob'=>$user->dob,
+                'exp'=>$user->exp,
+                'matrial_status'=>$user->matrial_status,
+                'created_at'=>$user->created_at,
+                'updated_at'=>$user->updated_at,
+              ]);
     }
 
     /**

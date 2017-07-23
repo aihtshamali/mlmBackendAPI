@@ -55,7 +55,21 @@ class TeamShareController extends Controller
       */
      public function show($id)
      {
-       return TeamShare::find($id)->toJson();
+      // return TeamShare::find($id)->toJson();
+
+      $apps=TeamShare::find();
+      return  response()->Json(['id'=>$apps->id,
+                'by_user_id'=>$apps->by_user_id,
+                'to_user_id'=>$apps->to_user_id,
+                'phoneNo'=>$apps->phoneNo,
+                'email'=>$apps->email,
+                'joined'=>$apps->joined,
+                'fb'=>$apps->fb,
+                'google'=>$apps->google,
+                'created_at'=>$apps->created_at,
+                'updated_at'=>$apps->updated_at,
+              ]);
+
      }
 
      /**
@@ -66,7 +80,22 @@ class TeamShareController extends Controller
       */
      public function edit($id)
      {
-       return TeamShare::find($id)->toJson();
+      //  return TeamShare::find($id)->toJson();
+
+
+      $apps=TeamShare::all();
+      return  response()->Json(['id'=>$apps->id,
+                'by_user_id'=>$apps->by_user_id,
+                'to_user_id'=>$apps->to_user_id,
+                'phoneNo'=>$apps->phoneNo,
+                'email'=>$apps->email,
+                'joined'=>$apps->joined,
+                'fb'=>$apps->fb,
+                'google'=>$apps->google,
+                'created_at'=>$apps->created_at,
+                'updated_at'=>$apps->updated_at,
+              ]);
+
      }
 
      /**

@@ -57,7 +57,18 @@ class AppShareController extends Controller
      */
     public function show($id)
     {
-      return AppShare::find($id)->toJson();
+      $apps=AppShare::find($id);
+      return  response()->Json(['id'=>$apps->id,
+                'by_user_id'=>$apps->by_user_id,
+                'to_user_id'=>$apps->to_user_id,
+                'phoneNo'=>$apps->phoneNo,
+                'email'=>$apps->email,
+                'downloaded'=>$apps->downloaded,
+                'fb'=>$apps->fb,
+                'google'=>$apps->google,
+                'created_at'=>$apps->created_at,
+                'updated_at'=>$apps->updated_at,
+              ]);
     }
 
     /**
@@ -68,7 +79,18 @@ class AppShareController extends Controller
      */
     public function edit($id)
     {
-      return AppShare::find($id)->toJson();
+      $apps=AppShare::find($id);
+      return  response()->Json(['id'=>$apps->id,
+                'by_user_id'=>$apps->by_user_id,
+                'to_user_id'=>$apps->to_user_id,
+                'phoneNo'=>$apps->phoneNo,
+                'email'=>$apps->email,
+                'downloaded'=>$apps->downloaded,
+                'fb'=>$apps->fb,
+                'google'=>$apps->google,
+                'created_at'=>$apps->created_at,
+                'updated_at'=>$apps->updated_at,
+              ]);
     }
 
     /**

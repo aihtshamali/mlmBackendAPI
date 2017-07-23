@@ -14,8 +14,10 @@ class AppController extends Controller
      */
     public function index()
     {
-        $apps=Apps::all()->toJson();
-        // $app=Response::Json($apps);
+      // I think this is the Better Way
+      return Apps::all()->toJson();
+
+
         // dd($apps);
 
     }
@@ -54,7 +56,17 @@ class AppController extends Controller
      */
     public function show($id)
     {
-        return Apps::find($id)->toJson();
+
+      $apps=Apps::find($id);
+      return  response()->Json(['id'=>$apps->id,
+                'title'=>$apps->title,
+                'sub_title'=>$apps->sub_title,
+                'link'=>$apps->link,
+                'img_url'=>$apps->img_url,
+                'created_at'=>$apps->created_at,
+                'updated_at'=>$apps->updated_at,
+              ]);
+
     }
 
     /**
@@ -65,7 +77,15 @@ class AppController extends Controller
      */
     public function edit($id)
     {
-      return Apps::find($id)->toJson();
+      $apps=Apps::find($id);
+      return  response()->Json(['id'=>$apps->id,
+                'title'=>$apps->title,
+                'sub_title'=>$apps->sub_title,
+                'link'=>$apps->link,
+                'img_url'=>$apps->img_url,
+                'created_at'=>$apps->created_at,
+                'updated_at'=>$apps->updated_at,
+              ]);
     }
 
     /**
