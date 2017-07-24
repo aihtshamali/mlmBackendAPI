@@ -55,7 +55,6 @@ class UserController extends Controller
             'matrial_status' => $request['matrial_status'],
             'password' => bcrypt($request['password']),
         ]);
-        dd($result);
         return $result->toJson();
     }
 
