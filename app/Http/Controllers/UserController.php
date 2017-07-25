@@ -35,7 +35,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
+        $user = User::where('username', $request['username'])
+                    ->orWhere(function($query) use ($request) {
+                      $query->where('email', $request['email']);
+                    })->get();
+        if (count($user) > 0) {
+          return response()->Json([
+            'error' => 'username or email already exist, try another one.',
+            'error_code' => 20123
+          ]);
+        }
         $result = User::create([
             'phon'=> "{$request['phon']}",
             'cardNo'=>$request['cardNo'],
@@ -44,7 +53,7 @@ class UserController extends Controller
             'bankAccNo'=>$request['bankAccNo'],
             'bankRouteNo'=>$request['bankRouteNo'],
             'name' => $request['name'],
-            'email' => "{$request['phon']}",
+            'email' => "{$request['email']}",
             'username' => $request['username'],
             'card_type' => $request['card_type'],
             'billingAddress' => $request['billingAddress'],

@@ -20,8 +20,8 @@ Route::group(['middleware'=>'web'],function(){
 
 });
 Auth::routes();
-Route::post('/register_new_user', 'UserController@store');
 
+Route::post('/register_new_user', 'UserController@store');
 
 Route::group(['middleware'=>'auth:api'],function(){
     Route::resource('appshare','AppShareController');
@@ -31,5 +31,3 @@ Route::group(['middleware'=>'auth:api'],function(){
     Route::resource('wallet','WalletController');
     Route::get('/home', 'HomeController@index')->name('home');
 });
-
-
