@@ -13,12 +13,11 @@
 
 
 Route::group(['middleware'=>'web'],function(){
-
-    Route::get('/', function () {
-        return view('welcome');
-    });
-
+    Route::get('/share', 'ShareController@index');
+    Route::get('/share/join', 'ShareController@joinpage')->name('joinpage');
+    Route::post('/share/email', 'ShareController@email');
 });
+
 Auth::routes();
 
 Route::post('/register_new_user', 'UserController@store');

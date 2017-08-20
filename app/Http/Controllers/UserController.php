@@ -45,23 +45,27 @@ class UserController extends Controller
             'error_code' => 20123
           ]);
         }
+
+
+        //dd($request);
+
         $result = User::create([
             'phon'=> "{$request['phon']}",
-            'cardNo'=>$request['cardNo'],
-            'dependent'=>$request['dependent'],
-            'bank_name'=>$request['bank_name'],
-            'bankAccNo'=>$request['bankAccNo'],
-            'bankRouteNo'=>$request['bankRouteNo'],
-            'name' => $request['name'],
+            'cardNo'=> "{$request['cardNo']}",
+            'dependent'=>"{$request['dependent']}",
+            'bank_name'=>"{$request['bank_name']}",
+            'bankAccNo'=>"{$request['bankAccNo']}",
+            'bankRouteNo'=>"{$request['bankRouteNo']}",
+            'name' => "{$request['username']}",
             'email' => "{$request['email']}",
-            'username' => $request['username'],
-            'card_type' => $request['card_type'],
-            'billingAddress' => $request['billingAddress'],
-            'socialSecurityNo' => $request['socialSecurityNo'],
-            'cvv_no' => $request['cvv_no'],
-            'dob' => $request['dob'],
-            'exp' => $request['exp'],
-            'matrial_status' => $request['matrial_status'],
+            'username' => "{$request['username']}",
+            'card_type' => "{$request['card_type']}",
+            'billingAddress' => "{$request['billingAddress']}",
+            'socialSecurityNo' => "{$request['socialSecurityNo']}",
+            'cvv_no' => "{$request['cvv_no']}",
+            'dob' => "{$request['dob']}",
+            'exp' => "{$request['exp']}",
+            'matrial_status' => "{$request['matrial_status']}",
             'password' => bcrypt($request['password']),
         ]);
         return $result->toJson();
