@@ -28,7 +28,7 @@ class ShareController extends Controller
         'via' => $request->input('via')
       ]);
       if ($e) {
-        return redirect('/share/join');
+        return redirect('http://jaidadpk.com/demo10/instaface/logincontroller/signup_view');
       } else {
         return view('share.error');
       }
